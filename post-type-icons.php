@@ -93,9 +93,7 @@ class Post_Type_Icons {
 
 	public function safe_mode() {
 		if ( isset( $GLOBALS['pti_icons'] ) ) {
-			foreach ( (array) $GLOBALS['pti_icons'] as $post_type => $icon ) {
-				pti_set_post_type_icon( $post_type, $icon );
-			}
+			pti_set_post_type_icon( $GLOBALS['pti_icons'] );
 		}
 	}
 
@@ -107,12 +105,12 @@ function Post_Type_Icons() {
 if ( is_admin() )
 	add_action( 'after_setup_theme', 'Post_Type_Icons' );
 
-function pti_set_post_type_icon( $post_type, $icon, $library = 'font_awesome' ) {
+function pti_set_post_type_icon( $post_type, $icon = false, $library = 'font_awesome' ) {
 	if ( is_admin() ) {
 		if ( 'font_awesome' == $library ) {
 			require_once __DIR__ . '/font-awesome/class-pti-font-awesome.php';
 		}
-		do_action( 'pti_plugin_set_icon_' . $library, $icon, $post_type );
+		do_action( 'pti_plugin_set_icon_' . $library, $post_type, $icon );
 	}
 }
 

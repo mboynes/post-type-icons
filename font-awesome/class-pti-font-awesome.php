@@ -32,6 +32,7 @@ class PTI_Font_Awesome {
 
 	public function setup() {
 		$this->font_dir = plugins_url( 'font/', __FILE__ );
+		$this->styles['icons'] = array();
 		add_action( 'pti_plugin_icon_demos', array( $this, 'icon_demo' ) );
 		add_action( 'pti_plugin_set_icon_font_awesome', array( $this, 'set_font_awesome_icon' ), 10, 2 );
 	}
@@ -44,14 +45,12 @@ class PTI_Font_Awesome {
 	 * @param string $post_type
 	 * @return void
 	 */
-	public function set_font_awesome_icon( $icon, $post_type ) {
-		$this->register_font_awesome( $post_type );
-		$cache_key = 'pti-icon-fa-' . $icon;
-		if ( false === ( $content = get_transient( $cache_key ) ) ) {
-			$content = $this->get_font_awesome_icon( $icon );
-			set_transient( $cache_key, $content, DAY_IN_SECONDS );
-		}
-		$this->styles['font_awesome']['rules'][] = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image:before { content: '{$content}' !important; }";
+	public function set_font_awesome_icon( $post_type, $icon ) {
+		$this->register_font_awesome();
+		if ( is_array( $post_type ) )
+			$this->styles['icons'] = array_merge( $this->styles['icons'], $post_type );
+		else
+			$this->styles['icons'][ $post_type ] = $icon;
 	}
 
 
@@ -62,13 +61,11 @@ class PTI_Font_Awesome {
 	 * @return void
 	 */
 	public function register_font_awesome( $post_type ) {
-		$this->styles['font_awesome']['types'][] = $post_type;
-		if ( !isset( $this->styles['font_awesome']['base'] ) ) {
-			$this->styles['font_awesome']['base'] = "
+		if ( !isset( $this->styles['base'] ) ) {
+			$this->styles['base'] = "
 			@font-face { font-family: 'FontAwesome'; src: url('{$this->font_dir}fontawesome-webfont.eot?v=3.1.0'); src: url('{$this->font_dir}fontawesome-webfont.eot?#iefix&v=3.1.0') format('embedded-opentype'), url('{$this->font_dir}fontawesome-webfont.woff?v=3.1.0') format('woff'), url('{$this->font_dir}fontawesome-webfont.ttf?v=3.1.0') format('truetype'), url('{$this->font_dir}fontawesome-webfont.svg#fontawesomeregular?v=3.1.0') format('svg'); font-weight: normal; font-style: normal; }
 			%s { font-family: FontAwesome !important; -webkit-font-smoothing: antialiased; background: none; *margin-right: .3em; }
-			%s { font-family: FontAwesome !important; }
-			";
+			%s { font-family: FontAwesome !important; }";
 			add_action( 'pti_plugin_icon_css', array( $this, 'output_font_awesome' ) );
 		}
 	}
@@ -79,16 +76,21 @@ class PTI_Font_Awesome {
 	 * @return type
 	 */
 	public function output_font_awesome() {
-		$normal = $before = array();
-		foreach ( $this->styles['font_awesome']['types'] as $post_type ) {
-			$temp = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image";
-			$normal[] = $temp;
-			$before[] = $temp . ':before';
+		$cache_key = 'pti-fa-' . md5( serialize( $this->styles ) );
+		if ( false === ( $content = get_transient( $cache_key ) ) ) {
+			$content = '';
+			$normal = $before = array();
+			foreach ( $this->styles['icons'] as $post_type => $icon ) {
+				$temp = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image";
+				$normal[] = $temp;
+				$before[] = $temp . ':before';
+				$hex = $this->get_font_awesome_icon( $icon );
+				$content .= "\n#adminmenu #menu-posts-{$post_type} div.wp-menu-image:before { content: '{$hex}' !important; }";
+			}
+			$content = sprintf( $this->styles['base'], implode( ',', $normal ), implode( ',', $before ) ) . $content;
+			set_transient( $cache_key, $content, HOUR_IN_SECONDS );
 		}
-		printf( $this->styles['font_awesome']['base'], implode( ',', $normal ), implode( ',', $before ) );
-		foreach ( $this->styles['font_awesome']['rules'] as $rule ) {
-			echo $rule;
-		}
+		echo $content;
 	}
 
 
