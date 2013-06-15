@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Post Type Icons by mboynes</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Post Type Icons</h1>
+        <p>A simple WordPress plugin for setting icons for post types. Requires MP6 (new admin design).</p>
+
+        <p class="view"><a href="https://github.com/mboynes/post-type-icons">View the Project on GitHub <small>mboynes/post-type-icons</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mboynes/post-type-icons/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mboynes/post-type-icons/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mboynes/post-type-icons">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="http://boyn.es/wp-content/uploads/2013/06/banner-1544x500.png" alt="Post Type Icons Demo"></p>
+
+<p>Quickly and easily add icons to your custom post types. Built for the new dashboard design that should come out with 3.7.</p>
+
+<p><img alt="Post Type Icons: Normal state demo" src="http://boyn.es/wp-content/uploads/2013/06/screenshot-1.png"><img alt="Post Type Icons: Active state demo" src="http://boyn.es/wp-content/uploads/2013/06/screenshot-2.png"></p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Does the pushpin not describe your custom post type? Here are 361 more icons to choose from. Icons are the GPL-compatible <a href="http://fontawesome.io/">Font Awesome Icons</a>. This is built for the new admin design that should debut with 3.7 (you can use the <a href="http://wordpress.org/plugins/mp6/">MP6 Plugin</a> until then).</p>
+
+<p>This is the same icon features that comes with <a href="http://wordpress.org/plugins/super-cpt/">SuperCPT</a>, but pulled out of the plugin for those crazy birds who don't use it.</p>
+
+<p>This adds a function you can use to set your post type's icon:</p>
+
+<p><code>pti_set_post_type_icon( $post_type, $icon );</code></p>
+
+<p>For instance:</p>
+
+<p><code>pti_set_post_type_icon( 'event', 'calendar' );</code></p>
+
+<p>You can also set the global variable $pti_icons as an array of post type =&gt; icon names. Using the global variable is safer, since it doesn't rely on a function (you could of course call <code>if ( function_exists( 'pti_set_post_type_icons' ) )</code> to be equally safe using the function).</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Upload to the <code>/wp-content/plugins/</code> directory</li>
+<li>Activate the plugin through the 'Plugins' menu in WordPress</li>
+<li>Figure out which icon you want to use. Go to Tools → Post Type Icons page for a reference.</li>
+<li>In your theme or a plugin, set the icons in one of the following ways:
+
+<ol>
+<li>Call the function <code>pti_set_post_type_icon( $post_type, $icon_name );</code>, e.g. <code>pti_set_post_type_icon( 'event', 'calendar' );</code>
+</li>
+<li>Using the global variable <code>$pti_icons</code>, set the array key =&gt; value pair such that <code>'post_type' =&gt; 'icon-name'</code>, e.g. <code>$GLOBALS['pti_icons']['event'] = 'calendar';</code>
+</li>
+</ol>
+</li>
+</ol><h2>
+<a name="frequently-asked-questions" class="anchor" href="#frequently-asked-questions"><span class="octicon octicon-link"></span></a>Frequently Asked Questions</h2>
+
+<h3>
+<a name="do-i-have-to-write-codeedit-my-theme-to-use-this-plugin" class="anchor" href="#do-i-have-to-write-codeedit-my-theme-to-use-this-plugin"><span class="octicon octicon-link"></span></a>Do I have to write code/edit my theme to use this plugin?</h3>
+
+<p>For now, yes. The next version will come with a GUI.</p>
+
+<h3>
+<a name="does-this-do-anything-besides-add-icons" class="anchor" href="#does-this-do-anything-besides-add-icons"><span class="octicon octicon-link"></span></a>Does this do anything besides add icons?</h3>
+
+<p>Not at all! If you want more functionality, check out <a href="http://wordpress.org/plugins/super-cpt/">SuperCPT</a>, which helps you create custom post types, custom taxonomies, and add meta boxes.</p>
+
+<h3>
+<a name="this-looks-like-crap" class="anchor" href="#this-looks-like-crap"><span class="octicon octicon-link"></span></a>This looks like crap</h3>
+
+<p>If you're not using the new admin design, you can install and activate the <a href="http://wordpress.org/plugins/mp6/">MP6 Plugin</a> to get it. If you are using the new admin design, post to the support tab with your browser/OS/WP Version details.</p>
+
+<h3>
+<a name="i-set-my-icons-and-theyre-never-going-to-change-is-there-a-way-to-remove-the-plugin-overhead-and-make-it-static" class="anchor" href="#i-set-my-icons-and-theyre-never-going-to-change-is-there-a-way-to-remove-the-plugin-overhead-and-make-it-static"><span class="octicon octicon-link"></span></a>I set my icons and they're never going to change. Is there a way to remove the plugin overhead and make it static?</h3>
+
+<p>Sure thing! The plugin pretty much just adds CSS to the admin which get added to the document head. Move those to your theme/plugin (not your main style.css since this is the admin panel, you'll need an admin-only CSS file). You can leave the paths the same if you don't plan on uninstalling the plugin (you can still deactivate the plugin). If you want to uninstall it, you'll have to copy the fonts to your theme/plugin and change the paths in the CSS.</p>
+
+<h3>
+<a name="i-dont-want-my-client-seeing-the-post-type-icons-page-in-the-admin-can-i-remove-it" class="anchor" href="#i-dont-want-my-client-seeing-the-post-type-icons-page-in-the-admin-can-i-remove-it"><span class="octicon octicon-link"></span></a>I don't want my client seeing the Post Type Icons page in the admin, can I remove it?</h3>
+
+<p>Yes. Add <code>add_filter( 'pti_plugin_show_admin_menu', '__return_false' );</code> in your theme/plugin.</p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p><strong>Matthew Boynes</strong></p>
+
+<ul>
+<li><a href="http://twitter.com/senyob">@senyob on Twitter</a></li>
+<li><a href="http://github.com/mboynes">Github</a></li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this work except in compliance with the License.
+You may obtain a copy of the License in the LICENSE file, or at:</p>
+
+<pre><code> http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mboynes">mboynes</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
