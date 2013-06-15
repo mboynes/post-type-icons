@@ -2,11 +2,11 @@
 
 /*
 	Plugin Name: Post Type Icons
-	Plugin URI: http://www.alleyinteractive.com/
-	Description: A simple plugin for setting icons for post types
+	Plugin URI: http://boyn.es/category/post-type-icons/
+	Description: A simple plugin for setting icons for post types. Requires MP6 (new admin design)
 	Version: 0.1
 	Author: Matthew Boynes
-	Author URI: http://www.alleyinteractive.com/
+	Author URI: http://boyn.es/
 */
 /*  This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
