@@ -1,18 +1,18 @@
 === Post Type Icons ===
 Contributors: mboynes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ANKZEUN8MR7W
-Tags: custom post type, custom post types, icons, pizzazz
+Tags: custom post type, custom post types, icons, font-awesome, pizzazz, ui
 Requires at least: 3.6
 Tested up to: 3.6
 Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quickly and easily add icons to your custom post types. Built for the new dashboard design that should come out with 3.7 (you can use the [MP6 Plugin](http://wordpress.org/plugins/mp6/) until then).
+Quickly and easily add icons to your custom post types. Built for the new dashboard design that should come out with 3.7.
 
 == Description ==
 
-Does the pushpin not describe your custom post type? Here are 361 more icons to choose from. Icons are the GPL-compatible [Font Awesome Icons](http://fontawesome.io/).
+Does the pushpin not describe your custom post type? Here are 361 more icons to choose from. Icons are the GPL-compatible [Font Awesome Icons](http://fontawesome.io/). This is built for the new admin design that should debut with 3.7 (you can use the [MP6 Plugin](http://wordpress.org/plugins/mp6/) until then).
 
 This is the same icon features that comes with [SuperCPT](http://wordpress.org/plugins/super-cpt/), but pulled out of the plugin for those crazy birds who don't use it.
 
@@ -50,3 +50,9 @@ Sure thing! The plugin pretty much just adds CSS to the admin which get added to
 = I don't want my client seeing the Post Type Icons page in the admin, can I remove it? =
 
 Yes. Add `add_filter( 'pti_plugin_show_admin_menu', '__return_false' );` in your theme/plugin.
+
+
+== Screenshots ==
+
+1. An example of a couple of icons next to the "Post" icon in a normal state
+2. An example of a couple of icons next to the "Post" icon in a hover/active state
