@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post type, custom post types, icons, font-awesome, pizzazz, ui
 Requires at least: 3.6
 Tested up to: 3.6
-Stable tag: 0.1
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Quickly and easily add icons to your custom post types. Built for the new dashbo
 
 Does the pushpin not describe your custom post type? Here are 361 more icons to choose from. Icons are the GPL-compatible [Font Awesome Icons](http://fontawesome.io/). This is built for the new admin design that should debut with 3.7 (you can use the [MP6 Plugin](http://wordpress.org/plugins/mp6/) until then).
 
-This is the same icon features that comes with [SuperCPT](http://wordpress.org/plugins/super-cpt/), but pulled out of the plugin for those crazy birds who don't use it.
+This is the same icon features that comes with [SuperCPT](http://wordpress.org/plugins/super-cpt/) 0.2+, but pulled out of the plugin for those crazy birds who don't use it.
 
 This adds a function you can use, `pti_set_post_type_icon( $post_type, $icon );` to set your post type's icon. For instance, `pti_set_post_type_icon( 'event', 'calendar' );`. You can also set the global variable $pti_icons as an array of post type => icon names. Using the global variable is safer, since it doesn't rely on a function (you could of course call `if ( function_exists( 'pti_set_post_type_icons' ) )` to be equally safe using the function).
 
@@ -56,3 +56,10 @@ Yes. Add `add_filter( 'pti_plugin_show_admin_menu', '__return_false' );` in your
 
 1. An example of a couple of icons next to the "Post" icon in a normal state
 2. An example of a couple of icons next to the "Post" icon in a hover/active state
+
+
+== Changelog ==
+
+= 0.1.1 =
+
+Removed assets from trunk
