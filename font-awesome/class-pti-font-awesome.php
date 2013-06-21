@@ -60,7 +60,7 @@ class PTI_Font_Awesome {
 	 * @param string $post_type
 	 * @return void
 	 */
-	public function register_font_awesome( $post_type ) {
+	public function register_font_awesome() {
 		if ( !isset( $this->styles['base'] ) ) {
 			$this->styles['base'] = "
 			@font-face { font-family: 'FontAwesome'; src: url('{$this->font_dir}fontawesome-webfont.eot?v=3.1.0'); src: url('{$this->font_dir}fontawesome-webfont.eot?#iefix&v=3.1.0') format('embedded-opentype'), url('{$this->font_dir}fontawesome-webfont.woff?v=3.1.0') format('woff'), url('{$this->font_dir}fontawesome-webfont.ttf?v=3.1.0') format('truetype'), url('{$this->font_dir}fontawesome-webfont.svg#fontawesomeregular?v=3.1.0') format('svg'); font-weight: normal; font-style: normal; }
