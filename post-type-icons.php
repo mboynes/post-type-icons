@@ -63,7 +63,7 @@ class Post_Type_Icons {
 
 	public function reference() {
 		if ( !current_user_can( 'manage_options' ) ) wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-		require_once __DIR__ . '/font-awesome/class-pti-font-awesome.php';
+		require_once dirname( __FILE__ ) . '/font-awesome/class-pti-font-awesome.php';
 		?>
 		<div class="wrap">
 			<div id="pti_icons">
@@ -108,7 +108,7 @@ if ( is_admin() )
 function pti_set_post_type_icon( $post_type, $icon = false, $library = 'font_awesome' ) {
 	if ( is_admin() ) {
 		if ( 'font_awesome' == $library ) {
-			require_once __DIR__ . '/font-awesome/class-pti-font-awesome.php';
+			require_once dirname( __FILE__ ) . '/font-awesome/class-pti-font-awesome.php';
 		}
 		do_action( 'pti_plugin_set_icon_' . $library, $post_type, $icon );
 	}
