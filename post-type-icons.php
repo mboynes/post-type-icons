@@ -82,7 +82,7 @@ class Post_Type_Icons {
 		?>
 		<style type="text/css">
 			<?php if ( $this->has_admin_menu ) : ?>
-			#pti_icons dl { float: left; width: 125px; padding: 10px 5px; overflow:hidden; }
+			#pti_icons dl { float: left; width: 125px; padding: 10px 5px; overflow:hidden; text-align: center; }
 			#pti_icons dt { margin: 0 auto 3px; padding: 0; width: 64px; height: 64px; font-size: 64px; line-height: 64px; text-align: center; }
 			#pti_icons dd { margin: 0; padding: 0; white-space: nowrap; text-align: center; }
 			<?php endif ?>
