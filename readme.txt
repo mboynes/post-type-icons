@@ -3,8 +3,8 @@ Contributors: mboynes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ANKZEUN8MR7W
 Tags: custom post type, custom post types, icons, font-awesome, pizzazz, ui
 Requires at least: 3.6
-Tested up to: 3.6
-Stable tag: 0.1.1
+Tested up to: 3.9
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
