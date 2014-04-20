@@ -8,11 +8,11 @@ Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quickly and easily add icons to your custom post types. Built for the new dashboard design that should come out with 3.7.
+Quickly and easily add Font Awesome icons to your custom post types.
 
 == Description ==
 
-Does the pushpin not describe your custom post type? Here are 361 more icons to choose from. Icons are the GPL-compatible [Font Awesome Icons](http://fontawesome.io/). This is built for the new admin design that should debut with 3.7 (you can use the [MP6 Plugin](http://wordpress.org/plugins/mp6/) until then).
+Does the pushpin not describe your custom post type? Here are hundreds more icons to choose from. Icons are the GPL-compatible [Font Awesome Icons](http://fontawesome.io/).
 
 This is the same icon features that comes with [SuperCPT](http://wordpress.org/plugins/super-cpt/) 0.2+, but pulled out of the plugin for those crazy birds who don't use it.
 
@@ -38,10 +38,6 @@ For now, yes. The next version will come with a GUI.
 = Does this do anything besides add icons? =
 
 Not at all! If you want more functionality, check out [SuperCPT](http://wordpress.org/plugins/super-cpt/), which helps you create custom post types, custom taxonomies, and add meta boxes.
-
-= This looks like crap =
-
-If you're not using the new admin design, you can install and activate the [MP6 Plugin](http://wordpress.org/plugins/mp6/) to get it. If you are using the new admin design, post to the support tab with your browser/OS/WP Version details.
 
 = I set my icons and they're never going to change. Is there a way to remove the plugin overhead and make it static? =
 
