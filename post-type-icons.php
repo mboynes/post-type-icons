@@ -3,8 +3,8 @@
 /*
 	Plugin Name: Post Type Icons
 	Plugin URI: http://boyn.es/category/post-type-icons/
-	Description: A simple plugin for setting icons for post types. Requires MP6 (new admin design)
-	Version: 0.2
+	Description: A simple plugin for setting icons for post types.
+	Version: 0.2.1
 	Author: Matthew Boynes
 	Author URI: http://boyn.es/
 */

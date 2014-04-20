@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post type, custom post types, icons, font-awesome, pizzazz, ui
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 0.2
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,15 @@ Yes. Add `add_filter( 'pti_plugin_show_admin_menu', '__return_false' );` in your
 
 
 == Changelog ==
+
+= 0.2.1 =
+
+* Readme update
+
+= 0.2 =
+
+* FontAwesome 4.0.3 update
+* Fixed PHP 5.2 error
 
 = 0.1.1 =
 
