@@ -64,8 +64,8 @@ class PTI_Font_Awesome {
 		if ( !isset( $this->styles['base'] ) ) {
 			$this->styles['base'] = "
 			@font-face{font-family:'FontAwesome';src:url('{$this->font_dir}fontawesome-webfont.eot?v=4.0.3');src:url('{$this->font_dir}fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),url('{$this->font_dir}fontawesome-webfont.woff?v=4.0.3') format('woff'),url('{$this->font_dir}fontawesome-webfont.ttf?v=4.0.3') format('truetype'),url('{$this->font_dir}fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
-			%1\$s { font-family:FontAwesome !important;display:inline-block;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background: none }
-			%1\$s:before { font-family:FontAwesome !important; font-size: 19px }";
+			%s { font-family:FontAwesome !important;display:inline-block;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background: none }
+			%s { font-family:FontAwesome !important; font-size: 19px }";
 			add_action( 'pti_plugin_icon_css', array( $this, 'output_font_awesome' ) );
 		}
 	}
@@ -79,12 +79,14 @@ class PTI_Font_Awesome {
 		$cache_key = 'pti-fa403-' . md5( serialize( $this->styles ) );
 		if ( false === ( $content = get_transient( $cache_key ) ) ) {
 			$content = '';
+			$normal = $before = array();
 			foreach ( $this->styles['icons'] as $post_type => $icon ) {
-				$selectors[] = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image";
+				$normal[] = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image";
+				$before[] = "#adminmenu #menu-posts-{$post_type} div.wp-menu-image:before";
 				$hex = $this->get_font_awesome_icon( $icon );
 				$content .= "\n#adminmenu #menu-posts-{$post_type} div.wp-menu-image:before { content: '{$hex}' !important; }";
 			}
-			$content = sprintf( $this->styles['base'], implode( ',', $selectors ) ) . $content;
+			$content = sprintf( $this->styles['base'], implode( ',', $normal ), implode( ',', $before ) ) . $content;
 			set_transient( $cache_key, $content, HOUR_IN_SECONDS );
 		}
 		echo $content;
